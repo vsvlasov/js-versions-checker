@@ -1,0 +1,24 @@
+{
+  "name": "js-version-checker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "resolutions": {
+    "mkdirp": "0.5.5",
+    "mime-types": "2.1.34",
+    "minimist": "1.2.5"
+  },
+  "scripts": {
+    "preinstall": "npx npm-force-resolutions",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "0.0.2",
+    "sqlite3": "5.0.2"
+  },
+  "devDependencies": {
+    "npm-force-resolutions": "^0.0.10"
+  }
+}
