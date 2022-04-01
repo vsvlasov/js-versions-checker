@@ -24,7 +24,6 @@ const writeReleaseDate = ({ db, name, version, releaseDate }) =>
     .run(name, version, releaseDate.valueOf());
 
 module.exports = {
-  target: "node",
   getReleaseDate,
   writeReleaseDate,
   getDatabase,

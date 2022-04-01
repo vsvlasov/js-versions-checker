@@ -17,6 +17,5 @@ const getPackages = ({ path, exclude } = {}) => {
 };
 
 module.exports = {
-  target: "node",
   getPackages,
 };
