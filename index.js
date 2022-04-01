@@ -1,3 +1,5 @@
+import {getRunArgs} from "./run-args";
+
 const {
     getReleaseDate,
     writeReleaseDate,
@@ -22,12 +24,14 @@ async function loadDate(packageInfo) {
 
 async function getDate(db, packageInfo) {
     let date;
-    date = getReleaseDate(packageInfo);
+    const { name, version } = packageInfo;
+    date = getReleaseDate({ name, version, db });
 
     if (date) return date;
 
     date = await loadDate(packageInfo)
     writeReleaseDate({
+        db,
         name: packageInfo.name,
         version: packageInfo.version,
         releaseDate: date,
@@ -41,9 +45,18 @@ async function getDate(db, packageInfo) {
 const showProgress = 50;
 
 (async() => {
+    const {
+        dbPath,
+        lockPath,
+        exclude,
+    } = getRunArgs();
+
     const criticalDate = new Date('2022-02-24');
-    const details = getPackages();
-    const db = getDatabase();
+    const details = getPackages({
+        path: lockPath,
+        exclude,
+    });
+    const db = getDatabase({ path: dbPath });
 
     console.log(`Total amount of packages to scan: ${details.length}`);
     console.log(`Items updated after ${criticalDate} will be shown below:`);
@@ -59,7 +72,7 @@ const showProgress = 50;
 
     for (let i = 0; i < details.length; i += 1) {
         const date = await d[i];
-        if (date >= criticalDate.valueOf()) {
+        if (!date || date >= criticalDate.valueOf()) {
             process.exitCode = 1;
             console.log(details[i].name, new Date(date))
         }

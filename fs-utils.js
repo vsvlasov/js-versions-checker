@@ -9,12 +9,13 @@ const transformEntry = ([name, info]) => ({
 });
 
 
-const getPackages = ({path='package-lock.json', exclude=['']} = {}) => {
+const getPackages = ({path, exclude} = {}) => {
     const fileData = JSON.parse(fs.readFileSync(path).toString());
     const packages = fileData.packages || fileData.dependencies;
 
     return Object.entries(packages)
         .map(transformEntry)
+        .filter(item => item.name !== '')
         .filter(item => exclude.indexOf(item.name) === -1)
 };
 
