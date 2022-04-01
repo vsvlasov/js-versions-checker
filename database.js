@@ -1,7 +1,6 @@
 const Database = require('better-sqlite3');
 
 const getDatabase = ({ path }) => {
-    console.log(path)
     const db = Database(path, {});
 
     // Init table if not exists
