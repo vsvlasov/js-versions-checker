@@ -21,7 +21,8 @@
   },
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
-    "build": "webpack --config webpack.config.js --mode production"
+    "build": "webpack --config webpack.config.js --mode production",
+    "build:dev": "webpack --config webpack.config.js --mode development"
   },
   "author": "",
   "license": "ISC",
