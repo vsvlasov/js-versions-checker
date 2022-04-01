@@ -33,6 +33,7 @@
   "devDependencies": {
     "eslint": "8.9.0",
     "npm-force-resolutions": "0.0.10",
+    "prettier": "2.5.1",
     "webpack": "5.69.1",
     "webpack-cli": "4.9.1",
     "webpack-node-externals": "3.0.0"

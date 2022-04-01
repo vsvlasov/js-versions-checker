@@ -1,55 +1,36 @@
 {
-    "env": {
-        "es6": true,
-        "node": true
-    },
-    "extends": [
-        "eslint:recommended"
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended"],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": [],
+  "rules": {
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "only-multiline",
+        "exports": "only-multiline",
+        "functions": "only-multiline"
+      }
     ],
-    "parserOptions": {
-        "ecmaVersion": 2020,
-        "sourceType": "module"
-    },
-    "plugins": [],
-    "rules": {
-        "comma-dangle": [
-            "error",
-            {
-                "arrays": "always-multiline",
-                "objects": "always-multiline",
-                "imports": "only-multiline",
-                "exports": "only-multiline",
-                "functions": "only-multiline"
-            }
-        ],
-        "complexity": [
-            "warn"
-        ],
-        "function-paren-newline": [
-            "error",
-            "consistent"
-        ],
-        "import/first": [
-            "off"
-        ],
-        "indent": [
-            "error",
-            4,
-            { "SwitchCase": 1 }
-        ],
-        "max-depth": [
-            "warn"
-        ],
-        "no-underscore-dangle": [
-            "off"
-        ],
-        "no-param-reassign": [
-            "warn"
-        ]
-    },
-    "globals": {
-        "Keen": false,
-        "test": false
-    },
-    "settings": {}
+    "complexity": ["warn"],
+    "function-paren-newline": ["error", "consistent"],
+    "import/first": ["off"],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "max-depth": ["warn"],
+    "no-underscore-dangle": ["off"],
+    "no-param-reassign": ["warn"]
+  },
+  "globals": {
+    "Keen": false,
+    "test": false
+  },
+  "settings": {}
 }
